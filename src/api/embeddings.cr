@@ -109,6 +109,25 @@ module OpenAI
     end
 
     class Client
+        # Get a vector representation of a given input
+        # that can be easily consumed by machine learning models
+        # and algorithms.
+        # 
+        # ## Arguments
+        # 
+        # * request : `EmbeddingRequest` - Request containing text or features to embed
+        # 
+        # ## Examples
+        # 
+        # ```
+        # client = OpenAI::Client.new ENV["OPENAI_API_KEY"]
+        #
+        # embedding_request = OpenAI::EmbeddingRequest.new(
+        #     input: ["Your input string goes here"],
+        #     model: OpenAI::SMALL_EMBEDDING_3,
+        # )
+        #
+        # response = client.create_embeddings(embedding_request)
         def create_embeddings(request : EmbeddingRequest) : EmbeddingResponse
             path = "/v1/embeddings"
             headers = HTTP::Headers.new

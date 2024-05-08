@@ -135,8 +135,32 @@ module OpenAI
     end
 
     class Client
-        def chat_completion(request : ChatCompletionRequest) : ChatCompletionResponse
-            make_request(CHAT_COMPLETIONS_SUFFIX, request, ChatCompletionResponse)
+        # Given a prompt, the model will return one or more 
+        # predicted completions along with the probabilities of 
+        # alternative tokens at each position. 
+        # Most developer should use our Chat Completions API 
+        # to leverage our best and newest models.
+        #
+        # ## Arguments
+        #
+        # * request : `OpenAI::CompletionRequest` - Request body to create a completion
+        #
+        # ## Examples
+        #
+        # ```
+        # client = OpenAI::Client.new ENV["OPENAI_API_KEY"]
+        #
+        # completion_request = OpenAI::CompletionRequest.new(
+        #   prompt: "Say this is a test",
+        #   model: OpenAI::GPT3DOT5_TURBO_INSTRUCT
+        # )
+        #
+        # puts client.completion(completion_request)
+        # 
+        # ```    
+        @[Deprecated("Use `#chat_completion` instead")]
+        def completion(request : CompletionRequest) : CompletionResponse
+            make_request(COMPLETIONS_SUFFIX, request, CompletionResponse)
         end
     end
 end

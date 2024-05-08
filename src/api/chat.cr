@@ -223,8 +223,33 @@ module OpenAI
     end
 
     class Client
-        def completion(request : CompletionRequest) : CompletionResponse
-            make_request(COMPLETIONS_SUFFIX, request, CompletionResponse)
+        # Given a list of messages comprising a conversation, 
+        # the model will return a response.
+        # 
+        # ## Arguments
+        #
+        # * request : `OpenAI::ChatCompletionRequest` - Request body to create a completion
+        #
+        # ## Examples
+        #
+        # ```
+        # client = OpenAI::Client.new ENV["OPENAI_API_KEY"]
+        #
+        # req = OpenAI::ChatCompletionRequest.new(
+        #     model: OpenAI::GPT3DOT5_TURBO,
+        #     messages: [
+        #         OpenAI::ChatCompletionMessage.new(
+        #             role: OpenAI::ChatMessageRole::User,
+        #             content: "Hello!"
+        #         )
+        #     ]
+        # )
+        #
+        # puts client.chat_completion(req)
+        # 
+        # ```  
+        def chat_completion(request : ChatCompletionRequest) : ChatCompletionResponse
+            make_request(CHAT_COMPLETIONS_SUFFIX, request, ChatCompletionResponse)
         end
     end
 end

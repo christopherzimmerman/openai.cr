@@ -6,7 +6,7 @@ req = OpenAI::ChatCompletionRequest.new(
     model: OpenAI::GPT3DOT5_TURBO,
     messages: [
         OpenAI::ChatCompletionMessage.new(
-            role: OpenAI::ChatMessageRole::System,
+            role: OpenAI::ChatMessageRole::User,
             content: "You are a helpful chatbot."
         )
     ]
