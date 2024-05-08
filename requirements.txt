@@ -7,3 +7,4 @@ mkdocs-material-extensions==1.0.3
 mkdocs-section-index==0.3.2
 mkdocstrings==0.16.2
 mkdocstrings-crystal==0.3.3
+click
