@@ -128,6 +128,7 @@ module OpenAI
         # )
         #
         # response = client.create_embeddings(embedding_request)
+        # ```
         def create_embeddings(request : EmbeddingRequest) : EmbeddingResponse
             path = "/v1/embeddings"
             headers = HTTP::Headers.new
