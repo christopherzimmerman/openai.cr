@@ -22,15 +22,15 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 module OpenAI::Exceptions
-    class ChatCompletionInvalidModel < Exception
-    end
+  class ChatCompletionInvalidModel < Exception
+  end
 
-    class ChatCompletionStreamNotSupported < Exception
-    end
+  class ChatCompletionStreamNotSupported < Exception
+  end
 
-    class ContentFieldsMisused < Exception
-    end
+  class ContentFieldsMisused < Exception
+  end
 
-    class VectorLengthMismatch < Exception
-    end
+  class VectorLengthMismatch < Exception
+  end
 end

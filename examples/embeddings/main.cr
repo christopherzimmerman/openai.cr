@@ -10,9 +10,9 @@ embedding_request = OpenAI::EmbeddingRequest.new(
 response = client.create_embeddings(embedding_request)
 
 embedding_request_base64 = OpenAI::EmbeddingRequest.new(
-    input: ["Your input string goes here"],
-    model: OpenAI::SMALL_EMBEDDING_3,
-    encoding_format: OpenAI::EmbeddingEncodingFormat::Base64
+  input: ["Your input string goes here"],
+  model: OpenAI::SMALL_EMBEDDING_3,
+  encoding_format: OpenAI::EmbeddingEncodingFormat::Base64
 )
 
 response2 = client.create_embeddings(embedding_request)
