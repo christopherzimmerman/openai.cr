@@ -1,0 +1,2047 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://christopherzimmerman.github.io/openai.cr/OpenAI/AssistantRequest/">
+      
+      
+        <link rel="prev" href="../AssistantFilesList/">
+      
+      
+        <link rel="next" href="../AssistantTool/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.21">
+    
+    
+      
+        <title>AssistantRequest - OpenAI.cr</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.66ac8b77.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/_mkdocstrings.css">
+    
+      <link rel="stylesheet" href="../../css/mkdocstrings.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#OpenAI::AssistantRequest" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="OpenAI.cr" class="md-header__button md-logo" aria-label="OpenAI.cr" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            OpenAI.cr
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              AssistantRequest
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="white" data-md-color-accent="blue"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/christopherzimmerman/openai.cr/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  openai
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../JsonSchema/" class="md-tabs__link">
+        
+  
+    
+  
+  JsonSchema
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="../" class="md-tabs__link">
+        
+  
+    
+  
+  OpenAI
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../String/" class="md-tabs__link">
+        
+  
+    
+  
+  String
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="OpenAI.cr" class="md-nav__button md-logo" aria-label="OpenAI.cr" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    OpenAI.cr
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/christopherzimmerman/openai.cr/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    openai
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../JsonSchema/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    JsonSchema
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2" id="__nav_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            JsonSchema
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JsonSchema/DataType/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    DataType
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../JsonSchema/Definition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Definition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    OpenAI
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            OpenAI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ApiType/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ApiType
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Assistant/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Assistant
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AssistantDeleteResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AssistantDeleteResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AssistantFile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AssistantFile
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AssistantFileRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AssistantFileRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AssistantFilesList/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AssistantFilesList
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    AssistantRequest
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    AssistantRequest
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#OpenAI::AssistantRequest-constructors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constructors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#OpenAI::AssistantRequest.new(model,name,description,instructions,tools,file_ids,metadata)" class="md-nav__link">
+    <span class="md-ellipsis">
+      .new
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#OpenAI::AssistantRequest-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#OpenAI::AssistantRequest#clone" class="md-nav__link">
+    <span class="md-ellipsis">
+      #clone
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#OpenAI::AssistantRequest#copy_with(model,name,description,instructions,tools,file_ids,metadata)" class="md-nav__link">
+    <span class="md-ellipsis">
+      #copy_with
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#OpenAI::AssistantRequest#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      #description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#OpenAI::AssistantRequest#file_ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      #file_ids
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#OpenAI::AssistantRequest#instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      #instructions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#OpenAI::AssistantRequest#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      #metadata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#OpenAI::AssistantRequest#model" class="md-nav__link">
+    <span class="md-ellipsis">
+      #model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#OpenAI::AssistantRequest#name" class="md-nav__link">
+    <span class="md-ellipsis">
+      #name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#OpenAI::AssistantRequest#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      #tools
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AssistantTool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AssistantTool
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AssistantToolType/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AssistantToolType
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AssistantsList/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    AssistantsList
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Base64Embedding/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Base64Embedding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ChatCompletionChoice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ChatCompletionChoice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ChatCompletionMessage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ChatCompletionMessage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ChatCompletionRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ChatCompletionRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ChatCompletionResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ChatCompletionResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ChatMessageRole/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ChatMessageRole
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Client/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Client
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ClientConfig/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ClientConfig
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CompletionChoice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CompletionChoice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CompletionRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CompletionRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../CompletionResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    CompletionResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EditsChoice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EditsChoice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EditsRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EditsRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EditsResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EditsResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Embedding/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Embedding
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EmbeddingEncodingFormat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EmbeddingEncodingFormat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EmbeddingRequest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EmbeddingRequest
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EmbeddingResponse/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EmbeddingResponse
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../EmbeddingResponseBase64/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    EmbeddingResponseBase64
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_30" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../Exceptions/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Exceptions
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3_30" id="__nav_3_30_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_30_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_30">
+            <span class="md-nav__icon md-icon"></span>
+            Exceptions
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Exceptions/ChatCompletionInvalidModel/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ChatCompletionInvalidModel
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Exceptions/ChatCompletionStreamNotSupported/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ChatCompletionStreamNotSupported
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Exceptions/ContentFieldsMisused/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ContentFieldsMisused
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Exceptions/VectorLengthMismatch/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    VectorLengthMismatch
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FinishReason/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FinishReason
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Function/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Function
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FunctionCall/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FunctionCall
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../FunctionDefinition/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FunctionDefinition
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogProb/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LogProb
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogProbResult/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LogProbResult
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LogProbs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LogProbs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ResponseFormat/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ResponseFormat
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ResponseFormatType/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ResponseFormatType
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tool/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tool
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ToolCall/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ToolCall
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ToolChoice/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ToolChoice
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ToolType/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ToolType
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TopLogProbs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    TopLogProbs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Usage/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Usage
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../String/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    String
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#OpenAI::AssistantRequest-constructors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Constructors
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Constructors">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#OpenAI::AssistantRequest.new(model,name,description,instructions,tools,file_ids,metadata)" class="md-nav__link">
+    <span class="md-ellipsis">
+      .new
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#OpenAI::AssistantRequest-methods" class="md-nav__link">
+    <span class="md-ellipsis">
+      Methods
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Methods">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#OpenAI::AssistantRequest#clone" class="md-nav__link">
+    <span class="md-ellipsis">
+      #clone
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#OpenAI::AssistantRequest#copy_with(model,name,description,instructions,tools,file_ids,metadata)" class="md-nav__link">
+    <span class="md-ellipsis">
+      #copy_with
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#OpenAI::AssistantRequest#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      #description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#OpenAI::AssistantRequest#file_ids" class="md-nav__link">
+    <span class="md-ellipsis">
+      #file_ids
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#OpenAI::AssistantRequest#instructions" class="md-nav__link">
+    <span class="md-ellipsis">
+      #instructions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#OpenAI::AssistantRequest#metadata" class="md-nav__link">
+    <span class="md-ellipsis">
+      #metadata
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#OpenAI::AssistantRequest#model" class="md-nav__link">
+    <span class="md-ellipsis">
+      #model
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#OpenAI::AssistantRequest#name" class="md-nav__link">
+    <span class="md-ellipsis">
+      #name
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#OpenAI::AssistantRequest#tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      #tools
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<div class="doc doc-object doc-type struct">
+<h1 id="OpenAI::AssistantRequest" class="doc doc-heading">struct <code>OpenAI::AssistantRequest</code>
+      <br/><small>inherits <code>Struct</code></small>
+<a href="#OpenAI::AssistantRequest" class="headerlink" title="Permanent link">#</a></h1>
+  <div class="doc doc-contents first">
+
+      <div class="doc doc-children">
+
+            <h2>Included modules</h2>
+              <code>JSON::Serializable</code>
+
+
+<h2 id="OpenAI::AssistantRequest-constructors">Constructors<a href="#OpenAI::AssistantRequest-constructors" class="headerlink" title="Permanent link">#</a></h2>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="OpenAI::AssistantRequest.new(model,name,description,instructions,tools,file_ids,metadata)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.new</span><span class="p">(</span><span class="n">model</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><a class="autorefs autorefs-internal" href="../../String/#String">String</a><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><a class="autorefs autorefs-internal" href="../../String/#String">String</a><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Nil</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><a class="autorefs autorefs-internal" href="../../String/#String">String</a><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Nil</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="n">instructions</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><a class="autorefs autorefs-internal" href="../../String/#String">String</a><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Nil</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="n">tools</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Array</span><span class="p">(</span><a class="autorefs autorefs-internal" href="../AssistantTool/#OpenAI::AssistantTool">AssistantTool</a><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Nil</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="n">file_ids</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Array</span><span class="p">(</span><a class="autorefs autorefs-internal" href="../../String/#String">String</a><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Nil</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span><span class="p">,</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Hash</span><span class="p">(</span><a class="autorefs autorefs-internal" href="../../String/#String">String</a><span class="p">,</span><span class="w"> </span><span class="n">JSON</span><span class="o">::</span><span class="n">Any</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">Nil</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span></code><a href="#OpenAI::AssistantRequest.new(model,name,description,instructions,tools,file_ids,metadata)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+
+    <a class="doc-source-link" href="https://github.com/christopherzimmerman/openai.cr/blob/136ed18b89d17b113fe9673e4a9db108d7d3ec8b/src/api/assistant.cr#L36">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-class_method">
+<h3 id="OpenAI::AssistantRequest.new(pull)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">.new</span><span class="p">(</span><span class="n">pull</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">JSON</span><span class="o">::</span><span class="n">PullParser</span><span class="p">)</span></code><a href="#OpenAI::AssistantRequest.new(pull)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+
+    <a class="doc-source-link" href="https://github.com/christopherzimmerman/openai.cr/blob/136ed18b89d17b113fe9673e4a9db108d7d3ec8b/src/api/assistant.cr#L46">View source</a>
+</div><h2 id="OpenAI::AssistantRequest-methods">Methods<a href="#OpenAI::AssistantRequest-methods" class="headerlink" title="Permanent link">#</a></h2>
+
+<div class="doc doc-object doc-method doc-instance_method">
+<h3 id="OpenAI::AssistantRequest#clone" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">#clone</span></code><a href="#OpenAI::AssistantRequest#clone" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+
+    <a class="doc-source-link" href="https://github.com/christopherzimmerman/openai.cr/blob/136ed18b89d17b113fe9673e4a9db108d7d3ec8b/src/api/assistant.cr#L36">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-instance_method">
+<h3 id="OpenAI::AssistantRequest#copy_with(model,name,description,instructions,tools,file_ids,metadata)" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">#copy_with</span><span class="p">(</span><span class="n">model</span><span class="w"> </span><span class="n">_model</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vi">@model</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="n">_name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vi">@name</span><span class="p">,</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="n">_description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vi">@description</span><span class="p">,</span><span class="w"> </span><span class="n">instructions</span><span class="w"> </span><span class="n">_instructions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vi">@instructions</span><span class="p">,</span><span class="w"> </span><span class="n">tools</span><span class="w"> </span><span class="n">_tools</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vi">@tools</span><span class="p">,</span><span class="w"> </span><span class="n">file_ids</span><span class="w"> </span><span class="n">_file_ids</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vi">@file_ids</span><span class="p">,</span><span class="w"> </span><span class="n">metadata</span><span class="w"> </span><span class="n">_metadata</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="vi">@metadata</span><span class="p">)</span></code><a href="#OpenAI::AssistantRequest#copy_with(model,name,description,instructions,tools,file_ids,metadata)" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+
+    <a class="doc-source-link" href="https://github.com/christopherzimmerman/openai.cr/blob/136ed18b89d17b113fe9673e4a9db108d7d3ec8b/src/api/assistant.cr#L36">View source</a>
+</div>
+
+<div class="doc doc-object doc-method doc-instance_method">
+<h3 id="OpenAI::AssistantRequest#description" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">#description</span> <span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">::</span><span class="n">Nil</span></code><a href="#OpenAI::AssistantRequest#description" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-instance_method">
+<h3 id="OpenAI::AssistantRequest#file_ids" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">#file_ids</span> <span class="p">:</span><span class="w"> </span><span class="n">Array</span><span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">::</span><span class="n">Nil</span></code><a href="#OpenAI::AssistantRequest#file_ids" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-instance_method">
+<h3 id="OpenAI::AssistantRequest#instructions" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">#instructions</span> <span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">::</span><span class="n">Nil</span></code><a href="#OpenAI::AssistantRequest#instructions" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-instance_method">
+<h3 id="OpenAI::AssistantRequest#metadata" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">#metadata</span> <span class="p">:</span><span class="w"> </span><span class="n">Hash</span><span class="p">(</span><span class="n">String</span><span class="p">,</span><span class="w"> </span><span class="n">JSON</span><span class="o">::</span><span class="n">Any</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">::</span><span class="n">Nil</span></code><a href="#OpenAI::AssistantRequest#metadata" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-instance_method">
+<h3 id="OpenAI::AssistantRequest#model" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">#model</span> <span class="p">:</span><span class="w"> </span><span class="n">String</span></code><a href="#OpenAI::AssistantRequest#model" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-instance_method">
+<h3 id="OpenAI::AssistantRequest#name" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">#name</span> <span class="p">:</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">::</span><span class="n">Nil</span></code><a href="#OpenAI::AssistantRequest#name" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+
+</div>
+
+<div class="doc doc-object doc-method doc-instance_method">
+<h3 id="OpenAI::AssistantRequest#tools" class="doc doc-heading">    <code class="highlight language-crystal"><span class="doc-title">#tools</span> <span class="p">:</span><span class="w"> </span><span class="n">Array</span><span class="p">(</span><span class="n">AssistantTool</span><span class="p">)</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="o">::</span><span class="n">Nil</span></code><a href="#OpenAI::AssistantRequest#tools" class="headerlink" title="Permanent link">#</a></h3>
+  <div class="doc doc-contents ">
+  </div>
+
+</div>      </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a7c05c9e.min.js"></script>
+      
+    
+  </body>
+</html>
